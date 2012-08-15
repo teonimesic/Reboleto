@@ -200,8 +200,15 @@ pt-BR:
     pm: ''
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
+    attributes: &attributes
+      bank_bill:
+        number: "Número do boleto"
+        fine: "Multa"
+        fine_per_day: "Multa ao dia"
+        expiration: "Data de Vencimento"
     errors:
       <<: *errors
   activerecord:
+    <<: *attributes
     errors:
       <<: *errors

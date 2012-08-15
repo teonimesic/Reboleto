@@ -1,0 +1,11 @@
+%p O número do seu novo boleto é: #{@bank_bill.generate_number}
+
+%p Este boleto vence em #{l @bank_bill.expiration}
+
+- if @bank_bill.bill.price.to_i.zero?
+  Não é possível calcular o valor total do boleto, pois o boleto não informa o valor original a ser pago.
+- else
+  %p O valor total a pagar é de #{number_to_currency(@bank_bill.calculated_price.to_f/100)}, sendo o valor que o valor total da multa é de #{number_to_currency(@bank_bill.fine_price.to_f/100)}.
+
+%p &nbsp;
+.back= link_to "Voltar", "javascript: history.go(-1)", class: "btn"

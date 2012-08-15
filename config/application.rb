@@ -79,3 +79,8 @@ module Reboleto
     config.assets.version = '1.0'
   end
 end
+
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  '<span class="control-group error">'.html_safe << html_tag << '</span>'.html_safe
+end
+

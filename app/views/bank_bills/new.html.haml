@@ -1,0 +1,30 @@
+= form_for(@bank_bill, class: "form-vertical") do |f|
+  %fieldset
+    - if @bank_bill.errors.present?
+      .alert.alert-error
+        %h3 Cheque os seguintes problemas na geração do seu código de boleto:
+        %ul
+          - @bank_bill.errors.full_messages.each do |msg|
+            %li= msg
+    .control-group
+      = f.label :number, class: "control-label"
+      .controls
+        = f.text_field :number, class: "span6", placeholder: "XXXXX.XXXXX XXXXX.XXXXXX XXXXX.XXXXXX X XXXXXXXXXXXXXX"
+    .row
+      .control-group.span2
+        = f.label :fine, class: "control-label"
+        .controls
+          .input-prepend
+            = content_tag(:span, 'R$', class: 'add-on') + f.text_field(:fine, class: "span1", placeholder: "0,00")
+      .control-group.span2
+        = f.label :fine_per_day, class: "control-label"
+        .controls
+          .input-prepend
+            = content_tag(:span, 'R$', class: 'add-on') + (f.text_field :fine_per_day, class: "span1", placeholder: "0,00")
+      .control-group.span4
+        = f.label :expiration, class: "control-label"
+        .controls
+          = f.date_select :expiration, class: 'date'
+      
+    .form-actions
+      = f.submit "reboletar", class: "btn btn-primary"
