@@ -1,4 +1,4 @@
-== Reboleto ==
+# Reboleto
 
 Esta aplicação foi desenvolvida para facilitar a postergação do vencimento de boletos bancários.
 
