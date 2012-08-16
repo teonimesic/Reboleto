@@ -205,7 +205,7 @@ pt-BR:
         number: "Número do boleto"
         fine: "Multa"
         fine_per_day: "Multa ao dia"
-        expiration: "Data de Vencimento"
+        expiration: "Data do novo vencimento"
     errors:
       <<: *errors
   activerecord:
